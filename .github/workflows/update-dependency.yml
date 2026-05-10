@@ -22,8 +22,11 @@ jobs:
               with:
                   node-version: 24
                   cache: pnpm
+              env:
+                CLIENT_PAYLOAD_PACKAGE: ${{ github.event.client_payload.package }}
+                CLIENT_PAYLOAD_VERSION:  ${{ github.event.client_payload.version }}
             - run: |
-                  pnpm install ${{ github.event.client_payload.package }}@${{ github.event.client_payload.version }} --save-exact
+                  pnpm install "$CLIENT_PAYLOAD_PACKAGE"@"$CLIENT_PAYLOAD_VERSION" --save-exact
                   pnpm install --no-frozen-lockfile
             - uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
               id: cpr
