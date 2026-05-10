@@ -9,8 +9,8 @@ jobs:
     merge-master-to-dev:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v6
-            - uses: devmasx/merge-branch@master
+            - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+            - uses: devmasx/merge-branch@6ec8363d74aad4f1615d1234ae1908b4185c4313 # master
               with:
                   type: now
                   head_to_merge: master

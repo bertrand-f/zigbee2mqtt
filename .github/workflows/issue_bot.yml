@@ -17,13 +17,13 @@ jobs:
       startsWith(github.event.issue.title, '[New device support]') ||
       startsWith(github.event.issue.title, '[External Converter]')
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           sparse-checkout: |
             scripts
           path: z2m
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           repository: Koenkk/zigbee-herdsman-converters
           ref: master
@@ -31,7 +31,7 @@ jobs:
           path: zhc
 
       - name: Comment on new device support/external converter issue
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const {newDeviceSupport} = await import("${{ github.workspace }}/z2m/scripts/issueBot.mjs")
